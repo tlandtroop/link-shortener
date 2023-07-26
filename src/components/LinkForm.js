@@ -13,7 +13,7 @@ const LinkForm = ({ setShortenedUrl }) => {
         url: 'https://url-shortener-service.p.rapidapi.com/shorten',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'X-RapidAPI-Key': "1434f4c9b6msh5d5b4dd205c6566p167693jsne51d1a3c19bd",
+            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
             'X-RapidAPI-Host': 'url-shortener-service.p.rapidapi.com'
         },
         data: encodedParams,
