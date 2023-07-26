@@ -11,7 +11,7 @@ A simple React application that shortens URLs using a third-party API and allows
 - [License](#license)
 
 ## Demo
-[Live Demo]([https://link-shortener-ten.vercel.app/]))
+[Live Demo](https://link-shortener-ten.vercel.app/)
 
 ## Features
 - Shorten any URL using a third-party API
