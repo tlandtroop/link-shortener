@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 
 const LinkForm = ({ setShortenedUrl }) => {
     const [originalUrl, setOriginalUrl] = useState('');
+    const [error, setError] = useState('');
 
     const encodedParams = new URLSearchParams();
     encodedParams.set('url', originalUrl);
@@ -26,9 +27,12 @@ const LinkForm = ({ setShortenedUrl }) => {
             const res = await axios.request(options)
             const shortenedUrl = res.data.result_url;
             console.log(res.data.result_url);
+            setError('');
             setShortenedUrl(shortenedUrl);
         } catch (error) {
             console.error('Error shortening the link: ', error);
+            setError('An error occurred while shortening the link. Please try again later.')
+            setShortenedUrl('');
         }
     }
 
@@ -49,6 +53,7 @@ const LinkForm = ({ setShortenedUrl }) => {
             >
                 Shorten
             </button>
+            {error && <p className="text-red-500 mt-2">{error}</p>}
         </form>
     </div>
   )
