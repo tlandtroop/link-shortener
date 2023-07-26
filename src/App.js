@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import LinkDisplay  from './components/LinkDisplay';
+import LinkForm from './components/LinkForm';
+
 
 function App() {
+  const [shortenedUrl, setShortenedUrl] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen flex items-center">
+      <div className="max-w-lg mx-auto my-10 p-5">
+        <h1 className="text-5xl font-bold mb-4">Link Shortener App</h1>
+        <div className=''>
+          <LinkForm setShortenedUrl={setShortenedUrl}/>
+          {shortenedUrl && (
+            <div className="mt-4">
+              <p className="text-green-700 font-medium">Shortened URL:</p>
+              <a
+                href={shortenedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-500 font-medium"
+              >
+                {shortenedUrl}
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
