@@ -37,7 +37,7 @@ const LinkForm = ({ setShortenedUrl }) => {
     }
 
   return (
-    <div>
+    <>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 flex flex-col justify-center">
                 <input
                     type='text' 
@@ -53,9 +53,9 @@ const LinkForm = ({ setShortenedUrl }) => {
             >
                 Shorten
             </button>
-            {error && <p className="text-red-500 mt-2">{error}</p>}
         </form>
-    </div>
+        {error && <p className="text-red-500 mt-2">{error}</p>}
+    </>
   )
 }
 

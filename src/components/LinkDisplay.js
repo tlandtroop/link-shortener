@@ -12,11 +12,13 @@ const LinkDisplay = ({ shortenedUrl }) => {
             href={shortenedUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-blue-500 font-medium ml-2"
+            className="block text-blue-500 font-medium ml-2 mr-5"
           >
             {shortenedUrl}
           </a>
-          <CopyButton textToCopy={shortenedUrl} />
+          <div className='ml-auto'>
+            <CopyButton textToCopy={shortenedUrl} />
+          </div>
         </div>
       ) : (
         <p className="text-red-500 font-medium">No shortened URL available yet.</p>
